@@ -1,0 +1,22 @@
+{
+  "name": "axiom",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+
+  "bin": {
+    "axiom": "src/index.ts"
+  },
+
+  "scripts": {
+    "start": "bun run src/index.ts start"
+  },
+
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}
