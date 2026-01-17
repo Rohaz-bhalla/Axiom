@@ -7,14 +7,15 @@ export function applyPatch(result: any) {
     throw new Error(`File not found: ${filePath}`);
   }
 
-  let content = fs.readFileSync(filePath, "utf-8");
+  const original = fs.readFileSync(filePath, "utf-8");
+  let updated = original;
 
   for (const step of result.patch) {
-    if (!content.includes(step.search)) {
+    if (!updated.includes(step.search)) {
       throw new Error("Search block not found in file");
     }
-    content = content.replace(step.search, step.replace);
+    updated = updated.replace(step.search, step.replace);
   }
 
-  return content;
+  return { original, updated };
 }

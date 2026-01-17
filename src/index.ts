@@ -11,21 +11,22 @@ switch (command) {
     break;
 
   case "help":
+  case "--help":
+  case "-h":
     console.log(`
-axiom - AI coding assistant
+axiom — AI coding assistant
 
 Usage:
   axiom start     Start interactive mode
   axiom help      Show help
-  axiom version   Show version
 `);
     break;
 
-  case "version":
-    console.log("axiom v0.1.0");
+  case undefined:
+    console.log("No command provided. Try: axiom start");
     break;
 
   default:
-    console.log("Unknown command:", command);
-    console.log("Run: axiom help");
+    console.log(`Unknown command: ${command}`);
+    console.log("Try: axiom help");
 }
